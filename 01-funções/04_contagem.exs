@@ -17,8 +17,27 @@ defmodule Contagem do
   """
   @spec run(String.t(), String.t()) :: integer
   def run(frase, palavra) do
-    # FIXME
+
+    resultado = String.split(frase)
+    percorrer(resultado,0,palavra)
+
+
   end
+
+  def percorrer([],contagem,palavra) do contagem end
+
+  def percorrer([x|xs],contagem,palavra) do
+    IO.inspect({x,contagem,palavra})
+    cond do
+      x == palavra -> contagem = contagem + 1
+      percorrer(xs,contagem,palavra)
+
+      true -> percorrer(xs,contagem,palavra)
+
+    end
+  end
+
+
 end
 
 defmodule ContagemTest do
@@ -31,7 +50,7 @@ defmodule ContagemTest do
 
     test "quando for apenas uma única ocorrência" do
       assert Contagem.run("O gato e o rato.", "gato") == 1
-      assert Contagem.run("O gato e o rato.", "rato") == 1
+      assert Contagem.run("O gato e o rato.", "rato.") == 1
     end
 
     test "quando for múltiplas ocorrências" do

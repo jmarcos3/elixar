@@ -19,7 +19,15 @@ defmodule Idade do
   """
   @spec run(integer) :: :infantil | :adolescente | :adulto | :idoso | :error
   def run(idade) do
-    # FIXME
+    cond do
+    idade == nil -> :error
+    is_integer(idade) == false -> :error
+    idade in 0..12 -> :infantil
+    idade in 13..24 -> :adolescente
+    idade in 25..59 -> :adulto
+    idade in 60..100 -> :idoso
+    end
+
   end
 end
 
@@ -48,13 +56,13 @@ defmodule IdadeTest do
       end
     end
 
-    test "a função deve retornar :adolescente se o valor for entre 25 e 59 anos" do
+    test "a função deve retornar :adulto se o valor for entre 25 e 59 anos" do
       for idade <- 25..59 do
         assert :adulto = Idade.run(idade)
       end
     end
 
-    test "a função deve retornar :adolescente se o valor for 60 ou mais anos" do
+    test "a função deve retornar :idoso se o valor for 60 ou mais anos" do
       for idade <- 60..100 do
         assert :idoso = Idade.run(idade)
       end

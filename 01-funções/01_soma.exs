@@ -13,7 +13,13 @@ defmodule Soma do
   """
   @spec run(integer, integer) :: integer | :error
   def run(a, b) do
-    # FIXME
+    cond do
+      a == nil -> :error
+      b == nil -> :error
+      is_integer(a) == false -> :error
+      is_integer(b) == false -> :error
+      true -> a + b
+    end
   end
 end
 
