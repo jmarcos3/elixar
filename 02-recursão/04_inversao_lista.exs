@@ -7,7 +7,14 @@ defmodule InversaoLista do
   """
   @spec run(list(integer)) :: list(integer)
   def run(xs) do
-    # FIXME
+    inverteLista(xs,[])
+  end
+
+  def inverteLista([],lista) do lista end # condição de parada quando a lista estiver vazia
+
+  def inverteLista([h|t],listaAux) do
+    listaAux = [h | listaAux] # Separo a lista em head e tail, e em toda chamada recursiva eu adiciono o elemento ao inicio da lista aux
+    inverteLista(t,listaAux)
   end
 end
 

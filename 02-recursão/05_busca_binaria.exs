@@ -19,8 +19,19 @@ defmodule BuscaBinaria do
   """
   @spec run(list(integer), integer) :: boolean
   def run(xs, x) do
-    # FIXME
-    :error
+    busca(xs,x,:false)
+  end
+
+  def busca([],x,resultado) do resultado end
+
+  def busca([h|t],x,resultado) do
+    cond do
+      h == x -> resultado = :true
+      busca(t,x,resultado)
+
+      true -> busca(t,x,resultado)
+    end
+
   end
 end
 

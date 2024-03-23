@@ -7,7 +7,14 @@ defmodule SomaLista do
   """
   @spec run(list(integer)) :: integer
   def run(xs) do
-    # FIXME
+    somaLista(xs,0)
+  end
+
+  def somaLista([],soma) do soma end
+  def somaLista([head | tail],soma) do
+    soma = soma + head
+    somaLista(tail,soma)
+    #IO.inpesct(soma) não entendi porque se adicionar essa linha o código quebra?
   end
 end
 

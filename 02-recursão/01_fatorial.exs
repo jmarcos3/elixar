@@ -12,8 +12,29 @@ defmodule Fatorial do
   """
   @spec run(integer) :: integer
   def run(n) do
-    # FIXME
+    cond do
+      n <= 1 -> fatorial(n,1)
+      true -> fatorial(n,0)
+    end
   end
+
+    def fatorial(1,calculo) do calculo end
+    def fatorial(n,calculo) do
+      antecessor = calculoAntecessor(n)
+      cond do
+        antecessor <= 1 -> calculo = n * fatorial(antecessor,1)
+        true -> calculo = n * fatorial(antecessor,calculo)
+      end
+    end
+
+    def calculoAntecessor(n) do
+      antecessor = n - 1
+      cond do
+        antecessor == 0 -> antecessor = 1
+        true -> antecessor
+      end
+    end
+
 end
 
 defmodule FatorialTest do
