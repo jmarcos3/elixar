@@ -18,7 +18,20 @@ defmodule SomaImpares do
   """
   @spec run(list(integer)) :: integer
   def run(nums) do
-    # FIXME
+    somaImpar(nums,0)
+  end
+
+  def somaImpar([],soma) do soma end
+  def somaImpar([h|t],soma) do
+    
+    cond do
+    Integer.is_odd(h) == true -> soma = soma + h
+    Integer.is_odd(h) == false -> soma
+    end
+
+    somaImpar(t,soma)
+
+
   end
 end
 

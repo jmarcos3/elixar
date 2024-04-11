@@ -18,8 +18,16 @@ defmodule InversaoString do
   """
   @spec run(String.t()) :: String.t()
   def run(s) do
-    # FIXME
+    lista = String.graphemes(s) # graphemes transforma a string em uma lista de caracteres
+    inverteString(Enum.reverse(lista),[])
   end
+
+  def inverteString([],listaAux) do Enum.join(listaAux) end # Enum.join transforma a lista em string
+  def inverteString([h|t],listaAux) do
+    listaAux = listaAux ++ [h]
+    inverteString(t,listaAux)
+  end
+
 end
 
 defmodule InversaoStringTest do
