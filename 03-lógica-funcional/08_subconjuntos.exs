@@ -18,8 +18,13 @@ defmodule Subconjuntos do
   """
   @spec run(list(any)) :: list(list(any))
   def run(lista) do
-    # FIXME
+    #
   end
+
+  def subConjunto([h|t],listaSub) do
+    
+   end
+
 end
 
 defmodule SubconjuntosTest do
