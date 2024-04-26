@@ -18,11 +18,23 @@ defmodule Subconjuntos do
   """
   @spec run(list(any)) :: list(list(any))
   def run(lista) do
-    #
+    subConjunto(lista,[[]],[])
   end
 
-  def subConjunto([h|t],listaSub) do
-    
+
+  def subConjunto([],listaSub,listaAux) do
+    cond do
+      listaAux == [] -> listaSub
+      true -> listaSub = listaSub ++ [listaAux]
+    end
+  end
+
+
+  def subConjunto([h|t],listaSub,listaAux) do
+    listaSub = listaSub ++ [[h]]
+    listaAux = listaAux ++ [h]
+    subConjunto(t,listaSub,listaAux)
+
    end
 
 end

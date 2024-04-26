@@ -21,6 +21,9 @@ defmodule AtualizarMapaAninhado do
   def run(mapa, caminho, valor) do
     # FIXME
   end
+
+  def attMap(mapa,caminho,valor) do end
+  def attMap(mapa,caminho,valor) do end
 end
 
 defmodule AtualizarMapaAninhadoTest do

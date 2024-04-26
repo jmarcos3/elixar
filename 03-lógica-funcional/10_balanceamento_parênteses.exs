@@ -23,8 +23,32 @@ defmodule VerificacaoParenteses do
   """
   @spec run(String.t()) :: boolean
   def run(s) do
-    # FIXME
+    alo = String.codepoints(s)
+    verificarParenteses(alo,0)
   end
+
+  def verificarParenteses([],count) do
+    cond do
+      count == 0 -> true
+      true -> false
+    end
+   end
+  def verificarParenteses([h|t],count) do
+    cond do
+      count == -1 -> false
+      
+      h == "(" -> count = count + 1
+      verificarParenteses(t,count)
+
+      h == ")" -> count = count - 1
+      verificarParenteses(t,count)
+
+    end
+
+  end
+
+
+
 end
 
 defmodule VerificacaoParentesesTest do
