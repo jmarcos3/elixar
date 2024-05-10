@@ -14,7 +14,6 @@ defmodule SomaLista do
   def somaLista([head | tail],soma) do
     soma = soma + head
     somaLista(tail,soma)
-    #IO.inpesct(soma) não entendi porque se adicionar essa linha o código quebra?
   end
 end
 
