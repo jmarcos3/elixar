@@ -1,6 +1,7 @@
 ExUnit.start()
 
 defmodule UsoModuleAttributes do
+  @atr "O valor da constante é: 42"
   @doc """
   Demonstra o uso de module attributes como constantes.
 
@@ -14,8 +15,11 @@ defmodule UsoModuleAttributes do
   """
   @spec run() :: String.t()
   def run() do
-    # FIXME
+    IO.inspect(@atr)
   end
+
+
+
 end
 
 defmodule UsoModuleAttributesTest do

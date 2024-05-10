@@ -1,5 +1,9 @@
 ExUnit.start()
 
+defmodule MinhaStruct do
+  defstruct [name: ""]
+end
+
 defmodule ImplementacaoProtocolo do
   @doc """
   Implementa um protocolo para formatar structs diferentes.
@@ -15,8 +19,10 @@ defmodule ImplementacaoProtocolo do
   """
   @spec formatar(map) :: String.t()
   def formatar(struct) do
-    # FIXME
+    case struct do
+      %MinhaStruct{} -> "MinhaStruct formatada: Elixir"
   end
+end
 end
 
 defmodule ImplementacaoProtocoloTest do

@@ -17,11 +17,15 @@ defmodule CriacaoStruct do
   @spec criar(integer, integer) :: map
   @spec mover(map, integer, integer) :: map
   def criar(x, y) do
-    # FIXME
+    %{x: x,y: y}
+
   end
 
   def mover(ponto, dx, dy) do
-    # FIXME
+    new_map = %{x: ponto.x+dx, y: ponto.y+dy}
+    IO.inspect(new_map)
+
+
   end
 end
 

@@ -14,7 +14,8 @@ defmodule StreamNumerosPares do
   """
   @spec run() :: list(integer)
   def run() do
-    # FIXME
+    stream = Stream.map(1..5, &(&1 * 2))
+    IO.inspect(Enum.map(stream,&(&1 * 1)))
   end
 end
 
